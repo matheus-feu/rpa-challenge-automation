@@ -39,8 +39,8 @@ class PlaywrightDriver(BrowserDriver):
 		self._page: Page | None = None
 		self._playwright = None
 
-	async def prepare_run(self, *, fresh: bool = True) -> None:
-		if not fresh and self._page and self._context:
+	async def prepare_run(self) -> None:
+		if self._page and self._context:
 			return
 		if self._context:
 			await self._context.close()
