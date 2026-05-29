@@ -9,7 +9,8 @@ O projeto foi estruturado como **plataforma de execução de RPAs**, não só um
 A ideia é separar três responsabilidades:
 
 | Camada | Papel |
-|--------|-## Configuração **Entrada da aplicação** | Recebe *qual* RPA rodar e *com quais dados* (`main`, API, fila) |
+|--------|-------|
+| **Entrada da aplicação** | Recebe *qual* RPA rodar e *com quais dados* (`main`, API, fila) |
 | **Orquestração** | `RpaService` valida o payload e despacha para o runner correto |
 | **Automação** | Cada runner (`ChallengeRunner`, futuros…) implementa o caso de uso no browser |
 
@@ -18,6 +19,7 @@ Assim, quando o projeto crescer, você adiciona pastas em `app/rpa/<nome>/` (inp
 ## Arquitetura
 
 ```mermaid
+flowchart TD
     main[main.py]
     service[RpaService]
     registry[RpaRegistry]
